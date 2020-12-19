@@ -51,6 +51,33 @@ def delTodo(del_indx):  # remove a todo by its index
         print(f'Error: todo #{del_indx} does not exist, Nothing deleted')
 
 
+def doneTodo(done_indx):  # mark a todo as done and move to done.txt with time
+
+    try:
+        # opening file to get the lines and storing in array
+        f = open('./db/todo.txt', 'r')
+        lines = f.readlines()
+        f.close()
+
+        # adding the done todo to done.txt file
+        f = open('./db/done.txt', 'a')
+        f.write(f'x {date.today()} {lines[int(done_indx)-1]}')
+        f.close()
+
+        # deleting that one line from the array
+        del lines[int(done_indx)-1]
+
+        # pushing the array to a new txt file clean and simple ;)
+        f = open('./db/todo.txt', 'w+')
+        for line in lines:
+            f.write(line)
+        f.close()
+
+        print(f'Marked todo #{done_indx} as done')
+    except IndexError:
+        print(f'Error: todo #{done_indx} does not exist')
+
+
 def main():  # logic and connect everything
     if len(sys.argv) == 1:
         helpTodo()
@@ -64,7 +91,8 @@ def main():  # logic and connect everything
             addTodo(sys.argv[-1])
         elif sys.argv[1] == 'del':
             delTodo(sys.argv[-1])
-
+        elif sys.argv[1] == 'done':
+            doneTodo(sys.argv[-1])
     else:
         print('invalid command')
 
