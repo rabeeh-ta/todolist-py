@@ -12,10 +12,19 @@ $ ./todo help             # Show usage
 $ ./todo report           # Statistics""")
 
 
+def lsTodo():  # print all the todos inside todo.txt
+    # open the txt iterate trough the lines and print with an index number
+    f = open('./db/todo.txt', 'r')
+    for indx, line in enumerate(f.readlines()):
+        print(f'[{indx+1}] {line}')
+    f.close()
+
+
 def main():  # logic and connect everything
     if len(sys.argv) == 1:
         helpTodo()
-
+    elif sys.argv[1] == 'ls':
+        lsTodo()
     elif sys.argv[1] == 'help':
         helpTodo()
 
