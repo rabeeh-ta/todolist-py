@@ -28,6 +28,29 @@ def addTodo(passed_todo):  # add a todo to todo.txt
     print(f'Added todo: "{passed_todo}"')
 
 
+def delTodo(del_indx):  # remove a todo by its index
+
+    try:
+        # opening file to get the lines and storing in array
+        f = open('./db/todo.txt', 'r')
+        lines = f.readlines()
+        f.close()
+
+        # deleting that one line from the array
+        del lines[int(del_indx)-1]
+
+        # pushing the array to a new txt file clean and simple ;)
+        f = open('./db/todo.txt', 'w+')
+        for line in lines:
+            f.write(line)
+        f.close()
+
+        print(f'Deleted todo #{del_indx}')
+
+    except IndexError:
+        print(f'Error: todo #{del_indx} does not exist, Nothing deleted')
+
+
 def main():  # logic and connect everything
     if len(sys.argv) == 1:
         helpTodo()
@@ -39,6 +62,8 @@ def main():  # logic and connect everything
     elif len(sys.argv) == 3:  # if text is not passed in quotes after arg
         if sys.argv[1] == 'add':
             addTodo(sys.argv[-1])
+        elif sys.argv[1] == 'del':
+            delTodo(sys.argv[-1])
 
     else:
         print('invalid command')
