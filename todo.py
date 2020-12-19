@@ -78,6 +78,18 @@ def doneTodo(done_indx):  # mark a todo as done and move to done.txt with time
         print(f'Error: todo #{done_indx} does not exist')
 
 
+def reportTodo():  # all the stats of todos
+    # open both txt files and get lengths
+    f = open('./db/todo.txt', 'r')
+    pending = f.readlines()
+    f.close()
+    f = open('./db/done.txt', 'r')
+    completed = f.readlines()
+    f.close()
+    print(pending, completed)
+    print(f'{date.today()} Pending: {len(pending) if len(pending)-1 > 0 else "0"} Completed: {len(completed) if len(completed)-1 > 0 else "0"}')  # fix -1 if 0
+
+
 def main():  # logic and connect everything
     if len(sys.argv) == 1:
         helpTodo()
@@ -85,7 +97,8 @@ def main():  # logic and connect everything
         lsTodo()
     elif sys.argv[1] == 'help':
         helpTodo()
-
+    elif sys.argv[1] == 'report':
+        reportTodo()
     elif len(sys.argv) == 3:  # if text is not passed in quotes after arg
         if sys.argv[1] == 'add':
             addTodo(sys.argv[-1])
