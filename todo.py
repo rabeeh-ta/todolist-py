@@ -20,6 +20,14 @@ def lsTodo():  # print all the todos inside todo.txt
     f.close()
 
 
+def addTodo(passed_todo):  # add a todo to todo.txt
+    # open txt add the new todo close
+    f = open('./db/todo.txt', 'a')
+    f.write(f'{passed_todo}\n')
+    f.close()
+    print(f'Added todo: "{passed_todo}"')
+
+
 def main():  # logic and connect everything
     if len(sys.argv) == 1:
         helpTodo()
@@ -27,6 +35,10 @@ def main():  # logic and connect everything
         lsTodo()
     elif sys.argv[1] == 'help':
         helpTodo()
+
+    elif len(sys.argv) == 3:  # if text is not passed in quotes after arg
+        if sys.argv[1] == 'add':
+            addTodo(sys.argv[-1])
 
     else:
         print('invalid command')
