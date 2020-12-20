@@ -1,3 +1,4 @@
+
 import sys  # for grabing the
 from datetime import date  # current yyyy-mm-dd
 
@@ -86,8 +87,10 @@ def reportTodo():  # all the stats of todos
     f = open('./db/done.txt', 'r')
     completed = f.readlines()
     f.close()
-    print(pending, completed)
-    print(f'{date.today()} Pending: {len(pending) if len(pending)-1 > 0 else "0"} Completed: {len(completed) if len(completed)-1 > 0 else "0"}')  # fix -1 if 0
+    #print(pending, completed)
+
+    # print the whole report
+    print(f'{date.today()} Pending: {len(pending) if len(pending)-1 >= 0 else "0"} Completed: {len(completed) if len(completed)-1 >= 0 else "0"}')  # fix -1 if 0
 
 
 def main():  # logic and connect everything
