@@ -1,3 +1,8 @@
+"""
+    this was fun,
+    I am a noob with not a lot of real world experience, maybe done something wrong too because your automated test was not working so i manually tested everything, hope someone sees the code and give me some feedback, took my whole evening. :) 
+                                @rabeeh-ta
+"""
 
 import sys  # for grabing the
 from datetime import date  # current yyyy-mm-dd

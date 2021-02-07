@@ -1,3 +1,9 @@
+# Edit
+
+This python to-do script was done for a Competition. The rules and requirements and down bellow.
+
+the todo.py is the main code file and db directory is where the todos are saved to.
+
 # CoronaSafe Engineering Fellowship Test Problem
 
 Thanks for applying to the CoronaSafe Engineering fellowship!
@@ -9,6 +15,7 @@ The specification for this problem is written down as tests. Since we haven’t 
 Here's how it should work when you're done:
 
 [![Todo-CLI](https://res.cloudinary.com/sv-co/image/upload/v1607935139/fullstack-CEF/Todo-CLI/play-video-demo_fp50wp.png)](https://vimeo.com/490621534)
+
 ## Getting started
 
 1. Install Python: Python is usually installed by default on most modern systems. To check what your currently have, open a terminal and run the following command:
@@ -35,6 +42,7 @@ Here's how it should work when you're done:
    ```
    ./todo.sh
    ```
+
 ## Run Automated Tests
 
 ### 1. Install Node.js
